@@ -34,7 +34,7 @@ class MenuScene(Scene):
         self._display.box((29, 12), (21, 3))
         self._display.box((29, 14), (21, 8))
 
-        self._display.draw((35, 13), 'ASCII-ENGINE')
+        self._display.draw((33, 13), 'ASCII-ENGINE')
         self._display.draw((34, 16), 'Item 1')
         self._display.draw((34, 17), 'Item 2')
         self._display.draw((34, 18), 'Item 3')
@@ -52,15 +52,15 @@ class MenuScene(Scene):
 
         if not self.current_choice:
             color = (randrange(0, 255), randrange(0, 255), randrange(0, 255))
-            self._display.draw((35, 13), 'ASCII-ENGINE', color)
+            self._display.draw((33, 13), 'ASCII-ENGINE', color)
         else:
             self._display.draw(pos[self.current_choice-1], '>', (0, 63, 0))
 
 
 if __name__ == '__main__':
     eng = Engine()
-    eng.display.scene = MenuScene
+    eng.Display.scene = MenuScene
 
     while True:
-        eng.display.render()
+        eng.Display.render()
         eng._clock.tick(10)

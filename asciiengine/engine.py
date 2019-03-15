@@ -18,5 +18,5 @@ class Engine:
         # self.event_handler = EventHandler()
 
     @property
-    def display(self):
+    def Display(self):
         return self._display
