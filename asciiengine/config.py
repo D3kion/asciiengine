@@ -1,5 +1,6 @@
 import pygame.locals as pgl
 
+
 class Config:
     WINDOW_CAPTION = 'ASCII-ENGINE'
     WINDOW_RESOLUTION = (1024, 700)

@@ -1,12 +1,10 @@
 import sys
 from abc import ABC, abstractmethod
 
-from . import Drawer
-
 
 class Scene(ABC):
-    def __init__(self, drawer: Drawer, **kwargs):
-        self.drawer = drawer
+    def __init__(self, display, **kwargs):
+        self._display = display
 
     # def loop(self):
     #     self.running = True
