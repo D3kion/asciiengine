@@ -38,8 +38,6 @@ class Display():
         self._draw_display()
         self._scene.draw()
 
-        label = self._font.render('AAAAAAA', 1, (255, 0, 0))
-        self._display.blit(label, (0, 0))
         pygame.display.flip()
 
     def _get_xy(self, colrow: tuple):

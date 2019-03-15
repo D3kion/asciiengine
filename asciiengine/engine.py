@@ -1,6 +1,7 @@
 import pygame
 
-from . import Config, Display
+from . import Config
+from .display import Display
 
 
 class Engine:
