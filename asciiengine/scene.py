@@ -1,10 +1,9 @@
-import sys
 from abc import ABC, abstractmethod
 
 
 class Scene(ABC):
-    def __init__(self, display, **kwargs):
-        self._display = display
+    def __init__(self, **kwargs):
+        pass
 
     # def loop(self):
     #     self.running = True

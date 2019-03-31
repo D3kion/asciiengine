@@ -1,12 +1,11 @@
-import sys
 from random import randrange
 
 from asciiengine import Engine, Scene
 
 
 class MenuScene(Scene):
-    def __init__(self, display, **kwargs):
-        super().__init__(display, **kwargs)
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
 
         self.current_choice = 0
 
@@ -59,8 +58,8 @@ class MenuScene(Scene):
 
 if __name__ == '__main__':
     eng = Engine()
-    eng.Display.scene = MenuScene
+    eng.scene = MenuScene
 
     while True:
-        eng.Display.render()
+        eng.render()
         eng._clock.tick(10)

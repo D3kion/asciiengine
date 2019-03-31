@@ -1,7 +1,8 @@
 import pygame
 
-from . import Config
+from .config import Config
 from .display import Display
+from .scene import Scene
 
 
 class Engine:
@@ -14,9 +15,24 @@ class Engine:
         self._window = pygame.display.set_mode(*self._config.WINDOW_MODE)
         self._clock = pygame.time.Clock()
 
+        self._scene = None
         self._display = Display(self._window, self._config)
         # self.event_handler = EventHandler()
 
     @property
-    def Display(self):
-        return self._display
+    def scene(self):
+        return self._scene
+
+    @scene.setter
+    def scene(self, scene: Scene, **kwargs):
+        self._scene = scene(**kwargs)
+
+    def handle_events(self):
+        pass  # TODO
+
+    def render(self):
+        if self._scene is None:
+            raise ValueError
+
+        self._display.render(self._scene)
+        pygame.display.flip()
