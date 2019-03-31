@@ -28,20 +28,20 @@ class MenuScene(Scene):
     #         if self.current_choice == 4:
     #             sys.exit()
 
-    def draw(self):
-        self._display.box((0, 0), (80, 35))
-        self._display.box((29, 12), (21, 3))
-        self._display.box((29, 14), (21, 8))
+    def draw(self, display):
+        display.ui.box((0, 0), (80, 35))
+        display.ui.box((29, 12), (21, 3))
+        display.ui.box((29, 14), (21, 8))
 
-        self._display.draw((33, 13), 'ASCII-ENGINE')
-        self._display.draw((34, 16), 'Item 1')
-        self._display.draw((34, 17), 'Item 2')
-        self._display.draw((34, 18), 'Item 3')
-        self._display.draw((34, 19), 'Exit')
+        display.draw((33, 13), 'ASCII-ENGINE')
+        display.draw((34, 16), 'Item 1')
+        display.draw((34, 17), 'Item 2')
+        display.draw((34, 18), 'Item 3')
+        display.draw((34, 19), 'Exit')
 
-        self._draw_pointer()
+        self._draw_pointer(display)
 
-    def _draw_pointer(self):
+    def _draw_pointer(self, display):
         pos = (
             (32, 16),
             (32, 17),
@@ -51,9 +51,9 @@ class MenuScene(Scene):
 
         if not self.current_choice:
             color = (randrange(0, 255), randrange(0, 255), randrange(0, 255))
-            self._display.draw((33, 13), 'ASCII-ENGINE', color)
+            display.draw((33, 13), 'ASCII-ENGINE', color)
         else:
-            self._display.draw(pos[self.current_choice-1], '>', (0, 63, 0))
+            display.draw(pos[self.current_choice-1], '>', (0, 63, 0))
 
 
 if __name__ == '__main__':

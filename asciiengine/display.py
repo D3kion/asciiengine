@@ -1,6 +1,7 @@
 import pygame
 
 from . import Config, Scene
+from .ui import UI
 
 
 class Display():
@@ -15,6 +16,8 @@ class Display():
                 self._config.DISPLAY_ROWS * self._font_height)
         self._display = pygame.Surface(size)
 
+        self.ui = UI(self)
+
     def _draw_display(self):
         window_width, window_height = self._window.get_size()
         display_position = (
@@ -28,6 +31,7 @@ class Display():
 
     def render(self, scene: Scene):
         self._draw_display()
+        scene.draw(self)
 
     def _get_xy(self, colrow: tuple):
         col, row = colrow
